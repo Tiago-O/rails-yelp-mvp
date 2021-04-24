@@ -1,6 +1,5 @@
 puts 'cleaning up database'
 Restaurant.destroy_all
-Review.destroy_all
 puts 'database is clean'
 puts 'creating restaurants with reviews!'
 
