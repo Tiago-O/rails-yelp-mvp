@@ -1,0 +1,20 @@
+<h1><%= @restaurant.name %></h1>
+
+<p>Category: <%= @restaurant.category %></p>
+<p>Address: <%= @restaurant.address %></p>
+
+<% if @restaurant.phone_number %>
+<p>Phone number: <%= @restaurant.phone_number %></p>
+<% end %>
+
+<% if @restaurant.reviews.any? %>
+  <h4>Reviews</h4>
+  <% @restaurant.reviews.each do |review| %>
+    <p><%= '⭐️' * review.rating %> <%= review.content %></p>
+    <hr>
+  <% end %>
+<% end %>
+
+<h5><%= link_to 'Back to restaurants', restaurants_path %></h5>
+<h5><%= link_to "Edit #{@restaurant.name}", edit_restaurant_path(@restaurant) %></h5>
+<h5><%= link_to "Review #{@restaurant.name}", new_restaurant_review_path(@restaurant) %></h5>
